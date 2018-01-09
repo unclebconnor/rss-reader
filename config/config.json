@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "rss-reader",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "rss-reader",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "rss-reader",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

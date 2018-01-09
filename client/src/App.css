@@ -1,0 +1,31 @@
+header {
+  height: 60px;
+  border-bottom: 1px inset lightgray;
+  display: flex;
+  align-items: center;
+}
+
+.horizontalNav {
+  list-style-type: none;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.hundredWide {
+  width: 100px;
+  text-align: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.center {
+  text-align: center;
+}
