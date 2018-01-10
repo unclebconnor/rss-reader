@@ -24,9 +24,11 @@ class ReaderMain extends Component {
 
 	addFeed(feedName,feedUrl){
 		axios.post('/feed', {
-        	userId: this.state.userId
+        	userId: this.state.userId,
+        	feedName: feedName,
+        	feedUrl: feedUrl
       	}).then(response => {
-        	console.log('response fired')
+        	console.log("add feed response", response)
      
       	}).catch(err => {
         	console.log(err)
@@ -38,9 +40,9 @@ class ReaderMain extends Component {
   		console.log("READER MAIN STATE", this.state)
     	return (
     	  <div className="readerMainWrapper">
-    	  	<div className="sidebarTop"><Feeds /></div>
-    	  	<div className="sidebarBottom"><AddFeed addFeed={this.addFeed}/></div>
-    	  	<div className='articleWindow'><ArticleView /></div>
+    	  	<div className="sidebarTop lilPadding"><Feeds /></div>
+    	  	<div className="sidebarBottom lilPadding"><AddFeed addFeed={this.addFeed}/></div>
+    	  	<div className='articleWindow lilPadding'><ArticleView /></div>
     	  </div>
     	);
 	}

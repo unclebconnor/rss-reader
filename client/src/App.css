@@ -15,7 +15,7 @@ header {
 .readerMainWrapper {
   display: grid;
   grid-template-columns: 250px auto;
-  grid-template-rows: auto 250px;
+  grid-template-rows: auto 350px;
 }
 
 .sidebarTop {
@@ -62,4 +62,8 @@ header {
 
 .center {
   text-align: center;
+}
+
+.lilPadding {
+  padding: 10px;
 }

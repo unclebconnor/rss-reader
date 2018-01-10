@@ -9,7 +9,14 @@ router.get('/',function(req,res){
 })
 
 router.post('/',function(req,res){
-	console.log('post route hit')
+	db.feed.create({
+		userId: req.body.userId,
+		feedName: req.body.feedName,
+		feedUrl: req.body.feedUrl
+	}).then(function(feed){
+		res.send(feed);
+		console.log("successfully created", feed)
+	});
 })
 
 module.exports = router;
