@@ -17,6 +17,9 @@ module.exports = {
       feedUrl: {
         type: Sequelize.STRING
       },
+      folder: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
