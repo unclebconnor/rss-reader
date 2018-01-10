@@ -5,7 +5,6 @@ var passport = require('passport');
 var axios = require('axios');
 
 router.get('/',function(req,res){
-	console.log('#######GET FEED#######', req.query.userId);
 	db.feed.findAll({
 		where: {
 			userId: req.query.userId

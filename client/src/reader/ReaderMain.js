@@ -30,7 +30,6 @@ class ReaderMain extends Component {
       	})	
 	}
 
-
 	addFeed(feedName,feedUrl){
 		axios.post('/feed', {
         	userId: this.state.userId,
@@ -45,12 +44,11 @@ class ReaderMain extends Component {
       	})
 	}
 
-
   	render() {
   		console.log("READER MAIN STATE", this.state)
     	return (
     	  <div className="readerMainWrapper">
-    	  	<div className="sidebarTop lilPadding"><Feeds /></div>
+    	  	<div className="sidebarTop lilPadding"><Feeds feeds={this.state.feeds}/></div>
     	  	<div className="sidebarBottom lilPadding"><AddFeed addFeed={this.addFeed}/></div>
     	  	<div className='articleWindow lilPadding'><ArticleView /></div>
     	  </div>
