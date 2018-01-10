@@ -5,7 +5,14 @@ var passport = require('passport');
 var axios = require('axios');
 
 router.get('/',function(req,res){
-	res.send('fweep');
+	console.log('#######GET FEED#######', req.query.userId);
+	db.feed.findAll({
+		where: {
+			userId: req.query.userId
+		}
+	}).then(function(feeds){
+		res.send(feeds);
+	})
 })
 
 router.post('/',function(req,res){
@@ -14,8 +21,13 @@ router.post('/',function(req,res){
 		feedName: req.body.feedName,
 		feedUrl: req.body.feedUrl
 	}).then(function(feed){
-		res.send(feed);
-		console.log("successfully created", feed)
+		db.feed.findAll({
+			where: {
+				userId: req.body.userId
+			}
+		}).then(function(feeds){
+			res.send(feeds);
+		})
 	});
 })
 

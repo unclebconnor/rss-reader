@@ -16,11 +16,20 @@ class ReaderMain extends Component {
 	}
 
 	componentDidMount(){
-		this.setState({
-			userId:this.props.userId
-		})
-		
+		axios.get('/feed', {
+			params: {
+				userId: this.props.userId
+			}
+      	}).then(response => {
+      		this.setState({
+      			userId: this.props.userId,
+      			feeds: response.data
+      		})
+      	}).catch(err => {
+        	console.log(err)
+      	})	
 	}
+
 
 	addFeed(feedName,feedUrl){
 		axios.post('/feed', {
@@ -28,8 +37,9 @@ class ReaderMain extends Component {
         	feedName: feedName,
         	feedUrl: feedUrl
       	}).then(response => {
-        	console.log("add feed response", response)
-     
+      		this.setState({
+      			feeds: response.data
+      		})
       	}).catch(err => {
         	console.log(err)
       	})
