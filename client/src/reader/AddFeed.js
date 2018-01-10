@@ -7,13 +7,17 @@ class AddFeed extends Component {
 		this.state={
 
 		}
-	}
+	} 
 
+	handleSubmit(){
+		this.props.addFeed()
+	}
 
   	render() {
     	return (
     	  <div>
     	  	AddFeed Sidebar
+    	  	<button onClick={(e) => this.handleSubmit(e)}>PUSH</button>
     	  </div>
     	);
 	}
