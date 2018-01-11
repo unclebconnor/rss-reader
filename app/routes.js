@@ -11,8 +11,8 @@ module.exports = function(app, passport) {
 
 	// ============= ADDITIONAL ROUTE FILES =============
 	// ==================================================
-	app.use('/test',require('./test'));
 	app.use('/feed',require('./feed'));
+	app.use('/getRss',require('./getRss'));
 
 
 	// ============= AUTH ROUTES =============

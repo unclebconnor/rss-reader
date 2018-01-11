@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import '../App.css';
 
 class ArticleView extends Component {
@@ -9,11 +10,21 @@ class ArticleView extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps){
+		console.log('derp')
+		axios.get('/getRss/?url='+ nextProps.selectedFeedUrl)
+		.then(function(response){
+			console.log("article view response: ",response.data)
+		}).catch(function(error){
+			console.log(error)
+		})
+	}
 
   	render() {
     	return (
     	  <div>
-    	  	ArticleView Window
+    	  	<div>ArticleView Window</div>
+    	  	<div>{this.props.selectedFeedUrl}</div>
     	  </div>
     	);
 	}

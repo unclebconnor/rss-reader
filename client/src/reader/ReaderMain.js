@@ -10,7 +10,8 @@ class ReaderMain extends Component {
 		super(props);
 		this.state={
 			userId:'',
-			feeds: []
+			feeds: [],
+      selectedFeedUrl: 'http://www.theatlantic.com/feed/all/'
 		}
 		this.addFeed = this.addFeed.bind(this);
 	}
@@ -50,7 +51,7 @@ class ReaderMain extends Component {
     	  <div className="readerMainWrapper">
     	  	<div className="sidebarTop lilPadding"><Feeds feeds={this.state.feeds}/></div>
     	  	<div className="sidebarBottom lilPadding"><AddFeed addFeed={this.addFeed}/></div>
-    	  	<div className='articleWindow lilPadding'><ArticleView /></div>
+    	  	<div className='articleWindow lilPadding'><ArticleView selectedFeedUrl={this.state.selectedFeedUrl}/></div>
     	  </div>
     	);
 	}

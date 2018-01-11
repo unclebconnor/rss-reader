@@ -4,10 +4,14 @@ var db = require('../models');
 var passport = require('passport');
 var axios = require('axios');
 
-router.get('/narf',function(req,res){
-	console.log('totes narf');
-	res.send('fweep');
-})
+router.get('/',function(req,res){
+	axios.get(req.query.url)
+	.then((response) => {
+		res.send(response.data);
+	}).catch((err) => {
+		cosole.log(err);
+	});
+});
 
 module.exports = router;
 
