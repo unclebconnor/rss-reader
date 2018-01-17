@@ -11,7 +11,7 @@ class ReaderMain extends Component {
 		this.state={
 			userId:'',
 			feeds: [],
-      selectedFeedUrl: 'http://www.theatlantic.com/feed/all/'
+      selectedFeedUrl: 'http://www.thisiscolossal.com/feed/'
 		}
 		this.addFeed = this.addFeed.bind(this);
 	}

@@ -14,7 +14,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 
 require('./config/passport')(passport);
 
