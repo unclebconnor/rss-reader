@@ -4,7 +4,7 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var path = require('path');
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 var passport = require('passport');
 var flash = require('connect-flash');
@@ -30,20 +30,6 @@ app.use(session({secret: 'shhhyojeezitsasecret'})); //worst ever secret
 app.use(passport.initialize());
 app.use(passport.session());  //persistent login sessions
 app.use(flash()); //use connect-flash for flash messages stored in session
-
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-//     res.header("Access-Control-Allow-Credentials", "true");
-//     res.header("Access-Control-Allow-Headers", "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With");
-//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//     next();
-// });
-
-var cors = require('cors');
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
 
 // routes ===============================================
 require('./app/routes.js')(app, passport);  //loads routes and passes in app and passport
