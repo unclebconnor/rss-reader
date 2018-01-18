@@ -46,7 +46,6 @@ class ReaderMain extends Component {
 	}
 
   	render() {
-  		console.log("READER MAIN STATE", this.state)
     	return (
     	  <div className="readerMainWrapper">
     	  	<div className="sidebarTop lilPadding"><Feeds feeds={this.state.feeds}/></div>

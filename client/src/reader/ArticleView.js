@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import $ from 'jquery';
 import '../App.css';
 
 class ArticleView extends Component {
@@ -31,8 +30,7 @@ class ArticleView extends Component {
 	}
 
   	render() {
-  		console.log(this.state)
-  		var articles = this.state.feeds.map((feed, index) => 
+  		let articles = this.state.feeds.map((feed, index) => 
   			<div className="itemWrapper" key={index}>
   				<a href={feed.link} className="is-size-4">{feed.title}</a>
   				<div dangerouslySetInnerHTML={{__html: `${feed.content}`}}></div>
@@ -41,8 +39,8 @@ class ArticleView extends Component {
   		);
 
     	return (
-    	  <div>
-    	  	<div>ArticleView Window</div>
+    	  <div className="container is-fluid">
+    	  	<div>Eventually name of selected feed</div>
     	  	<div>{articles}</div>
     	  </div>
     	);

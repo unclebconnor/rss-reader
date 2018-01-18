@@ -19,9 +19,9 @@ module.exports = function(app, passport) {
 	// =======================================
 
 	// ============= HOME PAGE (with login links) =============
-	app.get('/', function(req, res){
-		res.send('aloha'); //not really being used b/c react
-	});
+	// app.get('/', function(req, res){
+	// 	res.send('aloha'); //not really being used b/c react
+	// });
 
 	// ============= LOGIN =============
 	app.get('/login', function(req, res) {
@@ -145,13 +145,13 @@ module.exports = function(app, passport) {
 
 	// The "catchall" handler: for any request that doesn't
 	// match one above, send back React's index.html file.
-	// app.get('*', (req, res) => {
-	//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-	// });
-
 	app.get('*', (req, res) => {
-	  res.sendFile(path.join(__dirname, '../client/public/index.html'));
+	  res.sendFile(path.resolve(__dirname, 'client','build','index.html'));
 	});
+
+	// app.get('*', (req, res) => {
+	//   res.sendFile(path.join(__dirname, '../client/public/index.html'));
+	// });
 };
 
 // route middleware to make sure a user is logged in 

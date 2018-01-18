@@ -32,6 +32,7 @@ class AddFeed extends Component {
 	}
 
   	render() {
+      console.log('ADD FEED STATE: ', this.state)
     	return (
     	  	<div>
     	  		<div>Add a RSS Feed</div>

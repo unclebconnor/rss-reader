@@ -98,6 +98,7 @@ class App extends Component {
       url: '/auth/facebook',
     })
     .then((response) => {
+      console.log('dork')
       localStorage.userId = response.data.user.id
       localStorage.token = response.data.token
       this.setState({
