@@ -96,18 +96,18 @@ module.exports = function(app, passport) {
     }));
 
     // handle the callback after facebook has authenticated the user
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect : '/profile',
-            failureRedirect : '/'
-        })
-    );
-
     // app.get('/auth/facebook/callback',
-    //     passport.authenticate('facebook', function(req,res,next){
-    //     	console.log('BOO HISS')
+    //     passport.authenticate('facebook', {
+    //         successRedirect : '/profile',
+    //         failureRedirect : '/'
     //     })
     // );
+
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', function(req,res,next){
+        	console.log('BOO HISS')
+        })
+    );
 
     // ============= TWITTER =============
     app.get('/auth/twitter', passport.authenticate('twitter'));

@@ -27,10 +27,15 @@ class AuthMain extends Component {
     	    	<div className="columns">
     	    		<div className="column is-4 is-offset-2 center">
     	    			<div>*These are temporarily disabled</div>
-						<button className="button is-large is-link inline-block" onClick={this.props.getUserFacebook}>
+						<button 
+							className="button is-large is-link inline-block" 
+							onClick={this.props.getUserFacebook}
+						>
 							<span className="fa fa-facebook"> Log in with Facebook</span>
 						</button>
-						<button className="button is-large is-info inline-block">
+						<button 
+							className="button is-large is-info inline-block"
+						>
 							<span className="fa fa-twitter"> Log in with Twitter</span>
 						</button>
 						<button className="button is-large is-danger inline-block">

@@ -20,7 +20,11 @@ class Feeds extends Component {
   		let feedList = this.state.feeds.map((feed, index) => {
   			return(
   				<li key={index}>
-  					<div>Name: {feed.feedName}</div>
+  					<div 
+              data-feedUrl={feed.feedUrl} 
+              data-feedName={feed.feedName}
+              onClick={this.props.selectFeed}
+            >{feed.feedName}</div>
   				</li>
   			)
   		})

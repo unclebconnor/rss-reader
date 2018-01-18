@@ -11,9 +11,11 @@ class ReaderMain extends Component {
 		this.state={
 			userId:'',
 			feeds: [],
-      selectedFeedUrl: 'http://www.thisiscolossal.com/feed/'
+      selectFeed: '',
+      selectedFeedUrl: ''
 		}
 		this.addFeed = this.addFeed.bind(this);
+    this.selectFeed = this.selectFeed.bind(this);
 	}
 
 	componentDidMount(){
@@ -31,6 +33,15 @@ class ReaderMain extends Component {
       	})	
 	}
 
+  selectFeed(e){
+    var name = e.target.getAttribute('data-feedName')
+    var url = e.target.getAttribute('data-feedUrl')
+    this.setState({
+      selectedFeed: name,
+      selectedFeedUrl: url
+    })
+  }
+
 	addFeed(feedName,feedUrl){
 		axios.post('/feed', {
         	userId: this.state.userId,
@@ -46,11 +57,22 @@ class ReaderMain extends Component {
 	}
 
   	render() {
+      console.log('READER MAIN STATE: ',this.state)
     	return (
     	  <div className="readerMainWrapper">
-    	  	<div className="sidebarTop lilPadding"><Feeds feeds={this.state.feeds}/></div>
-    	  	<div className="sidebarBottom lilPadding"><AddFeed addFeed={this.addFeed}/></div>
-    	  	<div className='articleWindow lilPadding'><ArticleView selectedFeedUrl={this.state.selectedFeedUrl}/></div>
+    	  	<div className="sidebarTop lilPadding">
+            <Feeds 
+              feeds={this.state.feeds} 
+              selectFeed={this.selectFeed} 
+              selectedFeed={this.state.selectedFeed}
+            />
+          </div>
+    	  	<div className="sidebarBottom lilPadding">
+            <AddFeed addFeed={this.addFeed}/>
+          </div>
+    	  	<div className='articleWindow lilPadding'>
+            <ArticleView selectedFeedUrl={this.state.selectedFeedUrl}/>
+          </div>
     	  </div>
     	);
 	}
